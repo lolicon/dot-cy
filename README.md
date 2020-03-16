@@ -11,3 +11,17 @@ initiate const &amp; definition for cycript
   @import dot.cy.misc
   ...
 ```
+
+
+# bonus
+built-in ms hook usage in cy
+```cycript
+@import com.saurik.substrate.MS
+let origin = {}
+MS.hookMessage(
+    UIViewController,
+    @selector(initWithColor:accessibilityTitle:accessibilityHint:isSelected:isSelectable),
+    color=>origin->call(this,[UIColor blackColor],"a","b",false,true),
+    origin
+)
+```
